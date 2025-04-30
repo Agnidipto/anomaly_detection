@@ -3,7 +3,7 @@ from pprint import pprint
 from datetime import datetime, timedelta
 import requests
 
-LAST_CHECKED_TIME = datetime.now() - timedelta(minutes=10)
+LAST_CHECKED_TIME = datetime.now() - timedelta(minutes=1)
 NUMBER_OF_LOGS_BEFORE_ERROR = 5
 
 def extract_timestamp(log_line) -> datetime:
