@@ -37,7 +37,7 @@ def upload_log_file(file_path, url="http://localhost:8000/debug"):
 
 def main() :
 
-  file = open(r'../logs/app.log', 'r')
+  file = open(r'C:/Work Modules/UIC_US/MS/EEDL/Project/code/logs', 'r')
   log_lines = file.read().split('\n')
   file.close()
 
