@@ -2,8 +2,10 @@ import re
 from pprint import pprint
 from datetime import datetime, timedelta
 import requests
+import schedule
+import time
 
-LAST_CHECKED_TIME = datetime.now() - timedelta(minutes=1)
+LAST_CHECKED_TIME = datetime.now() - timedelta(seconds=5)
 NUMBER_OF_LOGS_BEFORE_ERROR = 5
 
 def extract_timestamp(log_line) -> datetime:
@@ -36,8 +38,10 @@ def upload_log_file(file_path, url="http://localhost:8000/debug"):
       return response.text
 
 def main() :
+  
+  LAST_CHECKED_TIME = datetime.now() - timedelta(seconds=5)
 
-  file = open(r'C:/Work Modules/UIC_US/MS/EEDL/Project/code/logs', 'r')
+  file = open(r'../logs/app.log', 'r')
   log_lines = file.read().split('\n')
   file.close()
 
@@ -74,7 +78,12 @@ def main() :
     
     print(f'Sending post request')
     upload_log_file(file_path=r'parsed_logs.txt')
+
+# Schedule the job to run every minute
+schedule.every(5).seconds.do(main)
+
+# Keep the program running
+while True:
   
-if __name__ == '__main__' :
-  main()
+  schedule.run_pending()
        
