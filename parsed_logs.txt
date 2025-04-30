@@ -1,0 +1,6 @@
+2025-04-30 03:00:14,136 INFO [app.py:133] - Application starting
+2025-04-30 03:00:15,055 INFO [app.py:133] - Application starting
+2025-04-30 03:00:26,594 INFO [utils.py:19] - Received username: random
+2025-04-30 03:00:26,594 INFO [utils.py:20] - Retrieving user: random
+2025-04-30 03:00:26,597 ERROR [utils.py:25] - No user found with username random
+2025-04-30 03:00:26,597 ERROR [app.py:73] - Error retrieving tasks for user random: 'NoneType' object has no attribute 'username'
